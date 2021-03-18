@@ -1,0 +1,21 @@
+@import "./material.min.css";
+
+.nanofx-button{
+    margin: 5px;
+}
+
+.nanofx-block{
+    width: 500px;
+    display: block;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+    .nanofx-block{
+        width: 1080px;
+        display: block;
+        margin: 10px auto;
+        padding: 20px;
+    }
+}

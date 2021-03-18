@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Include="Internal\NanoAudio.fs" />
+      <Compile Include="Internal\NanoBlock.fs" />
+      <Compile Include="Html\HtmlElement.fs" />
+      <Compile Include="Html\BlockDivision.fs" />
+      <Compile Include="Html\ButtonItem.fs" />
+      <Compile Include="NanoBuilder.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NanoFX.Configure\NanoFX.Configure.fsproj" />
+    </ItemGroup>
+
+</Project>
