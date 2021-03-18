@@ -1,8 +1,8 @@
-﻿namespace NanoFX.Builder.Internal
+﻿namespace NanoFX.Builder.Files
 
 open System.Collections.Generic
 
-type NanoBlock() =
+type NanoAudioCatlog() =
     inherit List<NanoAudio>()
     member val BlockName: string = null with get, set
     

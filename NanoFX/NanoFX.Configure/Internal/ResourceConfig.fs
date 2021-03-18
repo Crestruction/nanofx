@@ -1,6 +1,5 @@
 ﻿namespace NanoFX.Configure.Internal
 
-open System.Collections.Generic
 open YamlDotNet.Serialization
 
 [<AllowNullLiteral>]

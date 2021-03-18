@@ -3,7 +3,6 @@
 open System
 open Crestruction.Utilities.CommandLine
 open NanoFX.Builder
-open NanoFX.Configure
 
 [<Command("build", Description = "Build nanofx static site.")>]
 type NanoBuildCommand () =
@@ -14,9 +13,10 @@ type NanoBuildCommand () =
    
     [<CommandOption("-c|--config", Description = "Configure yaml file path.")>]
     member val private configPath: string = null with get, set
+    
     override this.Run() =
         let builder = NanoBuilder(this.configPath, this.outputPath)
 
-        Console.WriteLine "Start Build"
-        builder.Build |> ignore
+        //Console.WriteLine "Start Build"
+        builder.Build() |> ignore
         0

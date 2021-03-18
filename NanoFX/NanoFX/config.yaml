@@ -1,25 +1,25 @@
-nanofx:
-  base: D:/Workspace/nanofx/src
-  site:
-    name: NanoFX Example
-    icon: nano.ico
-    copyright: Copyright © 2021 Crestruction.
-  resources:
-    audiosources: res/audio
-    stylesheets: res/css
-    javascripts: res/js
-  styles:
-    page:
-      - nanofx-page
-    section:
-      - nanofx-block 
-      - mdl-card 
-      - mdl-shadow--2dp
-    header: 
-      - nanofx-header
-    button: 
-      - mdl-button 
-      - mdl-js-button 
-      - mdl-button--raised 
-      - mdl-js-ripple-effect 
-      - nanofx-button
+base: D:/Workspace/GitLab/nanofx/src
+site:
+  name: NanoFX Example
+  favicon: res/icon.ico
+  headericon: res/icon.png
+  copyright: Copyright © 2021 Crestruction.
+resources:
+  audiosources: res/audio
+  stylesheets: res/css
+  javascripts: res/js
+styles:
+  page:
+    - nanofx-page
+  section:
+    - nanofx-block 
+    - mdl-card 
+    - mdl-shadow--2dp
+  header: 
+    - nanofx-header
+  button: 
+    - mdl-button 
+    - mdl-js-button 
+    - mdl-button--raised 
+    - mdl-js-ripple-effect 
+    - nanofx-button

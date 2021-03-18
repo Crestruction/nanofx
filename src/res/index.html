@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./css/nanofx.css">
-    <script src="./js/material.min.js"></script>
 </head>
 <body>
     <div>
@@ -25,7 +24,7 @@
                     Button Nya
                 </button>
                 <!-- Raised button with ripple -->
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect nanofx-button">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect nanofx-button" onclick="playMusic('SFX_Footstep_Hard_1.wav')">
                     Button NyaNya
                 </button>
                 <!-- Raised button with ripple -->
@@ -167,4 +166,12 @@
         </div>
     </div>
 </body>
+<script>
+    function playMusic(name){
+        let music = new Audio('./audio/' + name);
+        music.play();
+    }
+</script>
+<script src="./js/material.min.js"></script>
+
 </html>

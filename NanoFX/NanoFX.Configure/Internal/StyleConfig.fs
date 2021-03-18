@@ -24,6 +24,8 @@ type StyleConfig() =
         definations.ForEach(fun p -> builder.AppendFormat(" {0} ", p) |> ignore)
         builder.ToString()
     
-    member this.GetButtonClass(builder: StringBuilder) =
-        builder.Append(this.GetHtmlClass(this.Button))
+    member this.GetButtonClass() =
+        this.GetHtmlClass(this.Button)
     
+    member this.GetSectionClass() =
+        this.GetHtmlClass(this.Section)

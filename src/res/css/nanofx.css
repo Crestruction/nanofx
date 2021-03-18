@@ -1,5 +1,15 @@
 @import "./material.min.css";
 
+.nano-header img{
+    float: left;
+    margin-left: 15px;
+}
+
+.nano-header h1{
+    position: relative;
+    font-size: 25px;
+}
+
 .nanofx-button{
     margin: 5px;
 }

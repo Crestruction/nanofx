@@ -5,16 +5,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="Internal\NanoAudio.fs" />
-      <Compile Include="Internal\NanoBlock.fs" />
+      <Compile Include="Files\Internal\NanoFile.fs" />
+      <Compile Include="Files\Internal\NanoSourceType.fs" />
+      <Compile Include="Files\NanoSource.fs" />
+      <Compile Include="Files\NanoAudio.fs" />
+      <Compile Include="Files\NanoAudioCatlog.fs" />
+      <Compile Include="Files\NanoSourceCatlog.fs" />
       <Compile Include="Html\HtmlElement.fs" />
-      <Compile Include="Html\BlockDivision.fs" />
-      <Compile Include="Html\ButtonItem.fs" />
+      <Compile Include="Html\ButtonSection.fs" />
+      <Compile Include="Html\NanoPage.fs" />
       <Compile Include="NanoBuilder.fs" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\NanoFX.Configure\NanoFX.Configure.fsproj" />
+      <ProjectReference Include="..\NanoFX.Templates\NanoFX.Templates.fsproj" />
     </ItemGroup>
 
 </Project>
