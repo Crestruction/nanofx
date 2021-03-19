@@ -1,0 +1,1 @@
+nanofx build -c config.yaml -o ./out
