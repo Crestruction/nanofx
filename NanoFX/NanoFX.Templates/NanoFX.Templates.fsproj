@@ -10,8 +10,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <EmbeddedResource Include="Resources\nanofx.css" />
+      <EmbeddedResource Include="Resources\NyaNya.mp3" />
+      <EmbeddedResource Include="Resources\icon.png" />
+      <EmbeddedResource Include="Resources\icon.ico" />
       <EmbeddedResource Include="Resources\nanofx.html" />
-      <Content Include="Resources\config.yaml" />
+      <EmbeddedResource Include="Resources\config.yaml" />
       <Compile Include="NanoTemplates.fs" />
     </ItemGroup>
 

@@ -34,6 +34,13 @@ type NanoBuilder(configPath: string, outPath: string) as self=
 
     member this.SourceDir with get() =
         this.GetSubDir "src"
+        
+    member this.BaseDir with get() =
+        let dir = this.Config.BasePath
+        if Path.IsPathRooted(dir) then
+            dir
+        else
+            Path.Combine(Path.GetDirectoryName(configPath), dir)
     
     member this.GetSubDir(name: string) =
         let dir = this.OutPutDir
@@ -45,39 +52,33 @@ type NanoBuilder(configPath: string, outPath: string) as self=
 
     ///Organize audio files.
     member this.OrganizeAudio() =
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-        NanoLog.Log $"Start exporting audios..."
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.LogBlock $"Start exporting audios..."
 
         if this.Config.Resources.AudioSources = null then
             NanoLog.LogError("Audio source configure cannot be empty.")
         
         for res in this.Config.Resources.AudioSources do
-            NanoLog.Log "================================"
+            let path = DirectoryInfo <| Path.Combine(this.BaseDir, res.Path)
+
             NanoLog.Log $"Start exporting {res.Title}..."
-            let path = DirectoryInfo <| Path.Combine(this.Config.BasePath, res.Path)
             NanoLog.Log $"Audio directory at {path.FullName}..."
-            NanoLog.Log "================================"
             
             let files = path.GetFiles().ToList()
             let block = NanoAudioCatlog(res)
             
             for fi in files do
+                let audio = NanoAudio()
                 
-                try
-                    let audio = NanoAudio()
-                    
-                    NanoLog.Log($"Audio found: {fi.FullName}...", ConsoleColor.Green)
-                    NanoLog.Log "|---Collecting File info..."
-                    
-                    audio.SetFrom(fi)
-                    block.Add(audio)
-                    
-                    NanoLog.Log $"|---Copy file to destination path..."
-                    audio.Organize this.AudioDir
-                    NanoLog.Log("|---File exporting finish...", ConsoleColor.Green)
-                with
-                | :? Exception -> NanoLog.LogError "|---Exporting failed..."
+                NanoLog.Log($"Audio found: {fi.FullName}...", ConsoleColor.Green)
+                NanoLog.Log "|---Collecting File info..."
+                
+                audio.SetFrom(fi)
+                block.Add(audio)
+                
+                NanoLog.Log $"|---Copy file to destination path..."
+                audio.Organize this.AudioDir
+                NanoLog.Log("|---File exporting finish...", ConsoleColor.Green)
+
             
             this.AudioBlock.Add(block.BlockName, block)
     
@@ -89,39 +90,33 @@ type NanoBuilder(configPath: string, outPath: string) as self=
 
     ///Organize source code files.
     member this.OrganizeSource() =
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-        NanoLog.Log $"Start exporting javascripts..."
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.LogBlock $"Start exporting javascripts..."
         
         for path in this.Config.Resources.JavaScripts do
-            let jsPath = Path.Combine(this.Config.BasePath, path)
+            let jsPath = Path.Combine(this.BaseDir, path)
             if jsPath <> null then
                 let fi = FileInfo jsPath
                 this.RecordFile(fi, NanoSourceType.JavaScript)
                 NanoLog.Log($"Javascript found: {fi.FullName}", ConsoleColor.Green)
         
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-        NanoLog.Log $"Start exporting stylesheets..."
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.LogBlock $"Start exporting stylesheets..."
         
         for path in this.Config.Resources.StyleSheets do
-            let cssPath = Path.Combine(this.Config.BasePath, path)
+            let cssPath = Path.Combine(this.BaseDir, path)
             if cssPath <> null then
                 let fi = FileInfo cssPath
                 this.RecordFile(fi, NanoSourceType.StyleSheet)
                 NanoLog.Log($"Stylesheet found: {fi.FullName}", ConsoleColor.Green)
         
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-        NanoLog.Log $"Start exporting icons..."
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.LogBlock $"Start exporting icons..."
 
         if this.Config.Site.FavIconPath <> null then
-            let favicon = Path.Combine(this.Config.BasePath, this.Config.Site.FavIconPath)
+            let favicon = Path.Combine(this.BaseDir, this.Config.Site.FavIconPath)
             File.Copy(favicon, Path.Combine(outPath, "favicon.ico"), true)
             NanoLog.Log($"Favicon found: {favicon}", ConsoleColor.Green)
             
         if this.Config.Site.HeaderIconPath <> null then
-            let headericon = Path.Combine(this.Config.BasePath, this.Config.Site.HeaderIconPath)
+            let headericon = Path.Combine(this.BaseDir, this.Config.Site.HeaderIconPath)
             File.Copy(headericon, Path.Combine(outPath, "icon.png"), true)
             NanoLog.Log($"Header icon found: {headericon}", ConsoleColor.Green)
     
@@ -131,9 +126,8 @@ type NanoBuilder(configPath: string, outPath: string) as self=
             let block = ButtonSection(this.Config, kvp.Value)
             builder.AppendLine(block.Parse()) |> ignore
         
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-        NanoLog.Log $"Start exporting HTML page..."
-        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.LogBlock $"Start exporting HTML page..."
+        
         let page = NanoPage(this.Config, this.Sources)
         let result = page.Build(builder.ToString())
         NanoLog.Log($"HTML build finished...", ConsoleColor.Green)
@@ -147,6 +141,4 @@ type NanoBuilder(configPath: string, outPath: string) as self=
         let html = this.GenerateHtml()
         File.WriteAllText(Path.Combine(outPath, "index.html"), html)
         
-        NanoLog.Log "==================================="
-        NanoLog.Log $"Finished. Exit now..."
-        NanoLog.Log "==================================="
+        NanoLog.LogBlock $"Finished. Exit now..."

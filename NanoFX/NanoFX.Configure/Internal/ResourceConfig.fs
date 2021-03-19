@@ -10,7 +10,7 @@ type ResourceConfig () =
     member val AudioSources: List<AudioConfig> = null with get, set
     
     [<YamlMember(Alias="stylesheets")>]
-    member val StyleSheets: List<string> = null with get, set
+    member val StyleSheets: List<string> = List<string>() with get, set
     
     [<YamlMember(Alias="javascripts")>]
-    member val JavaScripts: List<string> = null with get, set
+    member val JavaScripts: List<string> = List<string>() with get, set
