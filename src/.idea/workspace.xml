@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="02515796-0ad5-4cb8-a7b4-36692c7cf19a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../NanoFX/.idea/.idea.NanoFX/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/.idea/.idea.NanoFX/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/.idea/.idea.NanoFX/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/.idea/.idea.NanoFX/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/.idea/.idea.NanoFX/.idea/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/.idea/.idea.NanoFX/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/CommandArgumentAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/CommandAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/CommandLineReflector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/CommandOptionAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/CommandTask.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/Crestruction.Utilities.CommandLine.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/bin/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/bin/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/bin/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Crestruction.Utilities.CommandLine.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Crestruction.Utilities.CommandLine.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Crestruction.Utilities.CommandLine.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/.NETStandard,Version=v2.1.AssemblyAttributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/Debug/netstandard2.1/Crestruction.Utilities.CommandLine.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/Crestruction.Utilities.CommandLine/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/Internal/BlockDivision.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/Internal/ButtonItem.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/Internal/HtmlElement.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/NanoFX.Builder.fsproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/bin/Debug/net5.0/NanoFX.Builder.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/bin/Debug/net5.0/NanoFX.Builder.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/bin/Debug/net5.0/NanoFX.Builder.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.AssemblyInfo.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.fsproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.fsproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.fsprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/Debug/net5.0/NanoFX.Builder.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/NanoFX.Builder.fsproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/NanoFX.Builder.fsproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/NanoFX.Builder.fsproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Builder/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/Internal/ResourceConfig.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/Internal/SiteConfig.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/Internal/StyleConfig.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/NanoConfig.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/NanoFX.Configure.fsproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/Debug/net5.0/NanoFX.Configure.AssemblyInfo.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/Debug/net5.0/NanoFX.Configure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/Debug/net5.0/NanoFX.Configure.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/Debug/net5.0/NanoFX.Configure.fsproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/NanoFX.Configure.fsproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/NanoFX.Configure.fsproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/NanoFX.Configure.fsproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.Configure/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/Commands/NanoBuildCommand.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/NanoFX.fsproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/Program.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/bin/Debug/net5.0/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/Debug/net5.0/NanoFX.AssemblyInfo.fs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/Debug/net5.0/NanoFX.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/Debug/net5.0/NanoFX.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/Debug/net5.0/NanoFX.fsproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/Debug/net5.0/NanoFX.fsproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/Debug/net5.0/NanoFX.fsprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/NanoFX.fsproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/NanoFX.fsproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/NanoFX.fsproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NanoFX/NanoFX/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/nanofx.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1pudHQ52LSAg2ktS2UCzqY1OxBy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02515796-0ad5-4cb8-a7b4-36692c7cf19a" name="Default Changelist" comment="" />
+      <created>1616036823306</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616036823306</updated>
+      <workItem from="1616036824929" duration="1944000" />
+      <workItem from="1616038823717" duration="234000" />
+      <workItem from="1616039090865" duration="4452000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <RunPostBuildEvent>1</RunPostBuildEvent>
+        <Title>NanoFX</Title>
+        <Authors>Crestruction</Authors>
+        <Description>A simple button site generator. </Description>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Commands\NanoBuildCommand.fs" />
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
+      <PackageReference Include="YamlDotNet" Version="9.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Crestruction.Utilities.CommandLine\Crestruction.Utilities.CommandLine.csproj" />
+      <ProjectReference Include="..\NanoFX.Builder\NanoFX.Builder.fsproj" />
+      <ProjectReference Include="..\NanoFX.Configure\NanoFX.Configure.fsproj" />
+    </ItemGroup>
+
+</Project>

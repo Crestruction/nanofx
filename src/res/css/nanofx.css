@@ -1,0 +1,31 @@
+@import "./material.min.css";
+
+.nano-header img{
+    float: left;
+    margin-left: 15px;
+}
+
+.nano-header h1{
+    position: relative;
+    font-size: 25px;
+}
+
+.nanofx-button{
+    margin: 5px;
+}
+
+.nanofx-block{
+    width: 500px;
+    display: block;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+    .nanofx-block{
+        width: 1080px;
+        display: block;
+        margin: 10px auto;
+        padding: 20px;
+    }
+}

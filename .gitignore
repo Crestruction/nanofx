@@ -1,0 +1,12 @@
+NanoFX/NanoFX/bin/
+NanoFX/NanoFX/obj/
+NanoFX/NanoFX.Configure/bin/
+NanoFX/NanoFX.Configure/obj/
+NanoFX/NanoFX.Builder/obj/
+NanoFX/Crestruction.Utilities.CommandLine/obj/
+NanoFX/Crestruction.Utilities.CommandLine/bin/
+NanoFX/NanoFX.Builder/bin/
+NanoFX/NanoFX.Templates/bin/
+NanoFX/NanoFX.Templates/obj/
+NanoFX/NanoFX.Logger/obj/
+NanoFX/NanoFX.Logger/bin/Debug/net5.0/

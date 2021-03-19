@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Authors>Crestruction</Authors>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Include="Files\Internal\NanoFile.fs" />
+      <Compile Include="Files\Internal\NanoSourceType.fs" />
+      <Compile Include="Files\NanoSource.fs" />
+      <Compile Include="Files\NanoAudio.fs" />
+      <Compile Include="Files\NanoAudioCatlog.fs" />
+      <Compile Include="Files\NanoSourceCatlog.fs" />
+      <Compile Include="Html\HtmlElement.fs" />
+      <Compile Include="Html\ButtonSection.fs" />
+      <Compile Include="Html\NanoPage.fs" />
+      <Compile Include="NanoBuilder.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NanoFX.Configure\NanoFX.Configure.fsproj" />
+      <ProjectReference Include="..\NanoFX.Logger\NanoFX.Logger.fsproj" />
+      <ProjectReference Include="..\NanoFX.Templates\NanoFX.Templates.fsproj" />
+    </ItemGroup>
+
+</Project>
