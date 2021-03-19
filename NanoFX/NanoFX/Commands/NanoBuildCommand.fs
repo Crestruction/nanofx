@@ -18,5 +18,5 @@ type NanoBuildCommand () =
         let builder = NanoBuilder(this.configPath, this.outputPath)
 
         //Console.WriteLine "Start Build"
-        builder.Build() |> ignore
+        builder.Build()
         0

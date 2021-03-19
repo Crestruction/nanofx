@@ -2,6 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Authors>Crestruction</Authors>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,6 +25,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NanoFX.Configure\NanoFX.Configure.fsproj" />
+      <ProjectReference Include="..\NanoFX.Logger\NanoFX.Logger.fsproj" />
       <ProjectReference Include="..\NanoFX.Templates\NanoFX.Templates.fsproj" />
     </ItemGroup>
 

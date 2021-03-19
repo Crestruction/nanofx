@@ -9,6 +9,7 @@ open NanoFX.Builder.Files
 open NanoFX.Builder.Files.Internal
 open NanoFX.Builder.Html
 open NanoFX.Configure
+open NanoFX.Logger
 
 type NanoBuilder(configPath: string, outPath: string) as self=
        
@@ -44,69 +45,108 @@ type NanoBuilder(configPath: string, outPath: string) as self=
 
     ///Organize audio files.
     member this.OrganizeAudio() =
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.Log $"Start exporting audios..."
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
         if this.Config.Resources.AudioSources = null then
-            raise <| Exception("Audio source configure cannot be empty.")
+            NanoLog.LogError("Audio source configure cannot be empty.")
         
-        let path = DirectoryInfo <| Path.Combine(this.Config.BasePath, this.Config.Resources.AudioSources)
-                
-        let dirs = path.GetDirectories().ToList()
-        
-        if dirs.Count < 1 then
-            raise <| Exception("Audio sources not found.")
-        
-        for dir in dirs do
-            let files = dir.GetFiles().ToList()
-            let block = NanoAudioCatlog(BlockName = dir.Name)
+        for res in this.Config.Resources.AudioSources do
+            NanoLog.Log "================================"
+            NanoLog.Log $"Start exporting {res.Title}..."
+            let path = DirectoryInfo <| Path.Combine(this.Config.BasePath, res.Path)
+            NanoLog.Log $"Audio directory at {path.FullName}..."
+            NanoLog.Log "================================"
+            
+            let files = path.GetFiles().ToList()
+            let block = NanoAudioCatlog(res)
             
             for fi in files do
-                let audio = NanoAudio()
-                audio.SetFrom(fi)
-                block.Add(audio)
                 
-                audio.Organize this.AudioDir
+                try
+                    let audio = NanoAudio()
+                    
+                    NanoLog.Log($"Audio found: {fi.FullName}...", ConsoleColor.Green)
+                    NanoLog.Log "|---Collecting File info..."
+                    
+                    audio.SetFrom(fi)
+                    block.Add(audio)
+                    
+                    NanoLog.Log $"|---Copy file to destination path..."
+                    audio.Organize this.AudioDir
+                    NanoLog.Log("|---File exporting finish...", ConsoleColor.Green)
+                with
+                | :? Exception -> NanoLog.LogError "|---Exporting failed..."
             
             this.AudioBlock.Add(block.BlockName, block)
     
-    member private this.RecordFile(dir: DirectoryInfo, fileType: NanoSourceType) =
-        let files = dir.GetFiles().ToList()
-            
-        for fi in files do
-            let src = NanoSource(fileType)
-            src.SetFrom(fi)
-            src.Organize(this.SourceDir)
-            this.Sources.Add(src)
-            
-    
+    member private this.RecordFile(fi: FileInfo, fileType: NanoSourceType) =     
+        let src = NanoSource(fileType)
+        src.SetFrom(fi)
+        src.Organize(this.SourceDir)
+        this.Sources.Add(src)
+
     ///Organize source code files.
     member this.OrganizeSource() =
-        let jsPath = Path.Combine(this.Config.BasePath, this.Config.Resources.JavaScripts)
-        if jsPath <> null then
-            let path = DirectoryInfo jsPath
-            this.RecordFile(path, NanoSourceType.JavaScript)
-               
-        let cssPath = Path.Combine(this.Config.BasePath, this.Config.Resources.StyleSheets)
-        if cssPath <> null then
-            let path = DirectoryInfo cssPath
-            this.RecordFile(path, NanoSourceType.StyleSheet)
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.Log $"Start exporting javascripts..."
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         
-        let favicon = Path.Combine(this.Config.BasePath, this.Config.Site.FavIconPath)
-        File.Copy(favicon, Path.Combine(outPath, "favicon.ico"), true)
-        let headericon = Path.Combine(this.Config.BasePath, this.Config.Site.HeaderIconPath)
-        File.Copy(headericon, Path.Combine(outPath, "icon.png"), true)
+        for path in this.Config.Resources.JavaScripts do
+            let jsPath = Path.Combine(this.Config.BasePath, path)
+            if jsPath <> null then
+                let fi = FileInfo jsPath
+                this.RecordFile(fi, NanoSourceType.JavaScript)
+                NanoLog.Log($"Javascript found: {fi.FullName}", ConsoleColor.Green)
+        
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.Log $"Start exporting stylesheets..."
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        
+        for path in this.Config.Resources.StyleSheets do
+            let cssPath = Path.Combine(this.Config.BasePath, path)
+            if cssPath <> null then
+                let fi = FileInfo cssPath
+                this.RecordFile(fi, NanoSourceType.StyleSheet)
+                NanoLog.Log($"Stylesheet found: {fi.FullName}", ConsoleColor.Green)
+        
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.Log $"Start exporting icons..."
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
+        if this.Config.Site.FavIconPath <> null then
+            let favicon = Path.Combine(this.Config.BasePath, this.Config.Site.FavIconPath)
+            File.Copy(favicon, Path.Combine(outPath, "favicon.ico"), true)
+            NanoLog.Log($"Favicon found: {favicon}", ConsoleColor.Green)
+            
+        if this.Config.Site.HeaderIconPath <> null then
+            let headericon = Path.Combine(this.Config.BasePath, this.Config.Site.HeaderIconPath)
+            File.Copy(headericon, Path.Combine(outPath, "icon.png"), true)
+            NanoLog.Log($"Header icon found: {headericon}", ConsoleColor.Green)
     
     member this.GenerateHtml() =
         let builder = StringBuilder()
         for kvp in this.AudioBlock do
-            let block = ButtonSection(this.Config, kvp.Key, kvp.Value)
+            let block = ButtonSection(this.Config, kvp.Value)
             builder.AppendLine(block.Parse()) |> ignore
-         
+        
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        NanoLog.Log $"Start exporting HTML page..."
+        NanoLog.Log ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         let page = NanoPage(this.Config, this.Sources)
-        page.Build(builder.ToString())
+        let result = page.Build(builder.ToString())
+        NanoLog.Log($"HTML build finished...", ConsoleColor.Green)
+        result
     
     member this.Build() =
-        Console.WriteLine("Start Build")
+        NanoGraph.DrawLogo()
         self.Config.Read configPath |> ignore 
         this.OrganizeAudio()
         this.OrganizeSource()
         let html = this.GenerateHtml()
         File.WriteAllText(Path.Combine(outPath, "index.html"), html)
+        
+        NanoLog.Log "==================================="
+        NanoLog.Log $"Finished. Exit now..."
+        NanoLog.Log "==================================="

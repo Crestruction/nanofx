@@ -5,9 +5,14 @@ site:
   headericon: res/icon.png
   copyright: Copyright © 2021 Crestruction.
 resources:
-  audiosources: res/audio
-  stylesheets: res/css
-  javascripts: res/js
+  audiosources: 
+    - res/audio/Anti
+    - res/audio/Nya
+  stylesheets: 
+    - res/css/material.min.css
+    - res/css/nanofx.css
+  javascripts: 
+    - res/js/material.min.js
 styles:
   page:
     - nanofx-page

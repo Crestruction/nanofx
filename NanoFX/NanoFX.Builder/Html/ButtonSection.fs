@@ -4,7 +4,7 @@ open System.Text
 open NanoFX.Builder.Files
 open NanoFX.Configure
 
-type ButtonSection (config: NanoConfig, header: string, audios: NanoAudioCatlog) =
+type ButtonSection (config: NanoConfig, audios: NanoAudioCatlog) =
     inherit HtmlElement()
     
     override this.Parse() =
@@ -13,14 +13,14 @@ type ButtonSection (config: NanoConfig, header: string, audios: NanoAudioCatlog)
         let blockClass = config.Styles.GetSectionClass()
         let buttonClass = config.Styles.GetButtonClass()
         
-        builder.AppendLine $"<div class=\"nanofx-block {blockClass}\">" |> ignore
+        builder.AppendLine $"<div class=\"nanofx-block nanofx-block-{audios.BlockId} {blockClass}\">" |> ignore
         
-        builder.AppendLine $"\t<h3 class=\"nanofx-header\">{header}</h3>" |> ignore
+        builder.AppendLine $"\t<h3 class=\"nanofx-header\">{audios.BlockName}</h3>" |> ignore
         
-        builder.AppendLine $"\t<div class=\"nanofx-button-container\">" |> ignore
+        builder.AppendLine $"\t<div class=\"nanofx-container nanofx-container-{audios.BlockId}\">" |> ignore
         
         for audio in audios do
-            builder.AppendLine $"\t\t<button class=\"nanofx-button {buttonClass}\" onClick=\"nanoPlay('{audio.HashedFileName}')\">{audio.OriginName}</button>" |> ignore
+            builder.AppendLine $"\t\t<button class=\"nanofx-button nanofx-button-{audios.BlockId} {buttonClass}\" onClick=\"nanoPlay('{audio.HashedFileName}')\">{audio.OriginName}</button>" |> ignore
         
         builder.AppendLine "\t</div>" |> ignore
 

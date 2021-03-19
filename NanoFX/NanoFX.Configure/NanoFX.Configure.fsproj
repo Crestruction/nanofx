@@ -2,6 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <Authors>Crestruction</Authors>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
     </PropertyGroup>
 
     <ItemGroup>
@@ -9,6 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Include="Internal\AudioConfig.fs" />
       <Compile Include="Internal\ResourceConfig.fs" />
       <Compile Include="Internal\SiteConfig.fs" />
       <Compile Include="Internal\StyleConfig.fs" />

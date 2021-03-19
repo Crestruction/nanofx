@@ -4,6 +4,15 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
         <RunPostBuildEvent>1</RunPostBuildEvent>
+        <Title>NanoFX</Title>
+        <Authors>Crestruction</Authors>
+        <Description>A simple button site generator. </Description>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
     </PropertyGroup>
 
     <ItemGroup>
