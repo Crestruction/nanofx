@@ -1,0 +1,32 @@
+base: ./
+site:
+  name: NanoFX Example
+  favicon: res/icon.ico
+  headericon: res/icon.png
+  copyright: Copyright © 2021 Crestruction.
+resources:
+  audiosources: 
+    - id: audio-nya
+      title: NyaNya
+      path: res/audio/Nya
+    - id: audio-anti
+      title: 大Anti
+      path: res/audio/Anti
+  stylesheets: 
+    - res/css/material.min.css
+    - res/css/nanofx.css
+  javascripts: 
+    - res/js/material.min.js
+styles:
+  section:
+    - my-nanofx-block 
+    - mdl-card 
+    - mdl-shadow--2dp
+  header: 
+    - my-nanofx-header
+  button: 
+    - mdl-button 
+    - mdl-js-button 
+    - mdl-button--raised 
+    - mdl-js-ripple-effect 
+    - my-nanofx-button

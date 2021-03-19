@@ -29,3 +29,6 @@ type StyleConfig() =
     
     member this.GetSectionClass() =
         this.GetHtmlClass(this.Section)
+        
+    member this.GetHeaderClass() =
+        this.GetHtmlClass(this.Header)

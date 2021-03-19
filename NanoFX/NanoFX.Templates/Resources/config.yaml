@@ -8,17 +8,12 @@ resources:
   audiosources:
     - id: audio-nya
       title: NyaNya
-      path: res/audio/Nyano
-    - id: audio-anti
-      title: 大Anti
-      path: res/audio/Anti
+      path: res/audio/nya
   stylesheets:
-    - res/css/myapp.css
-  javascripts:
-    - res/js/myapp.js
+    - res/src/css/nanofx.css
+  #javascripts:
+  #  - res/src/js/nanofx.js
 styles:
-  page:
-    - my-nanofx-page
   section:
     - my-nanofx-block
   header:

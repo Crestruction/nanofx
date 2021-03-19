@@ -16,7 +16,5 @@ type NanoBuildCommand () =
     
     override this.Run() =
         let builder = NanoBuilder(this.configPath, this.outputPath)
-
-        //Console.WriteLine "Start Build"
         builder.Build()
         0

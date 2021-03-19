@@ -17,6 +17,7 @@
 
     <ItemGroup>
         <Compile Include="Commands\NanoBuildCommand.fs" />
+        <Compile Include="Commands\NanoCreateCommand.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
