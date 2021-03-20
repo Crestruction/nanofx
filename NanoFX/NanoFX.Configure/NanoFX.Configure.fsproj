@@ -10,14 +10,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="YamlDotNet" Version="9.1.4" />
+      <PackageReference Include="Legivel" Version="0.4.6" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="Internal\AudioConfig.fs" />
-      <Compile Include="Internal\ResourceConfig.fs" />
-      <Compile Include="Internal\SiteConfig.fs" />
-      <Compile Include="Internal\StyleConfig.fs" />
       <Compile Include="NanoConfig.fs" />
     </ItemGroup>
 

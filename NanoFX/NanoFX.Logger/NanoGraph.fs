@@ -1,19 +1,15 @@
-﻿namespace NanoFX.Logger
+﻿module NanoFX.NanoGraph
 
-open System
-
-[<AbstractClass; Sealed>]
-type NanoGraph private() =
-    static member DrawLogo() =
-        Console.WriteLine "======================================="
-        Console.WriteLine "    _   __                  _______  __"
-        Console.WriteLine "   / | / /___ _____  ____  / ____/ |/ /"
-        Console.WriteLine "  /  |/ / __ `/ __ \/ __ \/ /_   |   / "
-        Console.WriteLine " / /|  / /_/ / / / / /_/ / __/  /   |  "
-        Console.WriteLine "/_/ |_/\__,_/_/ /_/\____/_/    /_/|_|  "
-        Console.WriteLine "                                       "
-        Console.WriteLine "======================================="
-        Console.WriteLine "NanoFX button site generator"
-        Console.WriteLine "Developed by Crestruction.org"
-        Console.WriteLine "Opensourced under APACHE 2.0 LICENSE "
-        Console.WriteLine "======================================="
+let drawLogo() =
+    printfn "======================================="
+    printfn "    _   __                  _______  __"
+    printfn "   / | / /___ _____  ____  / ____/ |/ /"
+    printfn "  /  |/ / __ `/ __ \/ __ \/ /_   |   / "
+    printfn " / /|  / /_/ / / / / /_/ / __/  /   |  "
+    printfn "/_/ |_/\__,_/_/ /_/\____/_/    /_/|_|  "
+    printfn "                                       "
+    printfn "======================================="
+    printfn "NanoFX button site generator"
+    printfn "Developed by Crestruction.org"
+    printfn "Opensourced under APACHE 2.0 LICENSE "
+    printfn "======================================="

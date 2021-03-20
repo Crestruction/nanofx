@@ -17,15 +17,14 @@ let main argv =
     
     app.OnExecute(
         fun() ->
-            app.ShowHelp |> ignore
+            app.ShowHelp () |> ignore
             0
     )
     
     app.ReflectFrom <| Assembly.GetCallingAssembly()
     
-    let mutable exit_code = 0
-    exit_code <- app.Execute(argv)
+    let exitCode = app.Execute(argv)
     
-    Console.Read |> ignore
-    exit_code
+    Console.Read () |> ignore
+    exitCode
      

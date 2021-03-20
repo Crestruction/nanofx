@@ -1,25 +1,19 @@
-﻿namespace NanoFX.Logger
+﻿module NanoFX.NanoLog
 
 open System
 
-[<AbstractClass; Sealed>]
-type NanoLog private() =
-    static member Log(content: string, color) =
-        let c = Console.ForegroundColor
-        Console.ForegroundColor <- color
-        Console.WriteLine content
-        Console.ForegroundColor <- c
+let private logc color content =
+    let c = Console.ForegroundColor
+    Console.ForegroundColor <- color
+    printfn "%s" content
+    Console.ForegroundColor <- c
 
-    static member LogError(content: string) =
-        NanoLog.Log(content, ConsoleColor.Red)
-        raise <| Exception content
-    static member LogWarning(content: string) =
-        NanoLog.Log(content, ConsoleColor.Yellow)
-
-    static member Log(content: string) =
-        NanoLog.Log(content, Console.ForegroundColor)
-
-    static member LogBlock(content: string) =
-        NanoLog.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", ConsoleColor.Blue)
-        NanoLog.Log(content, ConsoleColor.Blue)
-        NanoLog.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", ConsoleColor.Blue)
+let logError = logc ConsoleColor.Red
+let logWarning = logc ConsoleColor.Yellow
+let logSuccess = logc ConsoleColor.Green
+let log = logc Console.ForegroundColor
+let logBlock content = 
+    let logb = logc ConsoleColor.Blue 
+    logb ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    logb content
+    logb ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"

@@ -1,28 +1,34 @@
-﻿namespace NanoFX.Builder.Html
+﻿module NanoFX.Builder.NanoPage
 
-open System.Text
 open NanoFX.Builder.Files
-open NanoFX.Builder.Files.Internal
 open NanoFX.Configure
-open NanoFx.Templates
+open NanoFX
+open FSharpHTML
+open type System.Environment
 
-type NanoPage(config: NanoConfig, sources: NanoSourceCatlog) =
-    member this.GetTemplate() =
-        NanoTemplates().Get("nanofx.html")
-    
-    member this.Build(content: string) =
-        let tpl = this.GetTemplate()
+let build (config: NanoConfig) (sources: NanoSourceCatlog) (content: HTMLContent seq) =
+    let tpl = Templates.get "nanofx.html"
+
+    let html2str: HTMLContent seq -> string = 
+        Seq.map (HTMLDocument >> string >> (+) NewLine) >> Seq.fold (+) ""
+        >> fun x -> x.Replace ("<!DOCTYPE html>", "")
         
-        let css = StringBuilder()
-        for src in sources.Get(NanoSourceType.StyleSheet) do
-            css.AppendLine(src.ToHtml()) |> ignore
-        
-        let js = StringBuilder()
-        for src in sources.Get(NanoSourceType.JavaScript) do
-            js.AppendLine(src.ToHtml()) |> ignore
-        
-        tpl.Replace("${SITE_NAME}", config.Site.SiteName)
-            .Replace("${CSS_IMPORT}", css.ToString())
-            .Replace("${COPYRIGHT}", config.Site.CopyRight)
-            .Replace("${JS_IMPORT}", js.ToString())
-            .Replace("${NANOFX_CONTENT}", content)
+    let get filetype =
+        query {
+            for i in sources do
+            where (i.srcType = filetype)
+            select (html2str [NanoSource.toHtml i])
+        }
+        |> Seq.fold (+) ""
+
+    let css = get NanoSourceType.StyleSheet
+    let js = get NanoSourceType.JavaScript
+
+    seq {
+        "${SITE_NAME}", config.site.name
+        "${CSS_IMPORT}", css
+        "${COPYRIGHT}", config.site.copyright
+        "${JS_IMPORT}", js
+        "${NANOFX_CONTENT}", html2str content
+    }
+    |> Seq.fold (fun (html: string) (a, b) -> html.Replace (a, b)) tpl

@@ -11,3 +11,6 @@ NanoFX/NanoFX.Templates/obj/
 NanoFX/NanoFX.Logger/obj/
 NanoFX/NanoFX.Logger/bin/Debug/net5.0/
 NanoFX/NanoFX.Logger/bin/
+NanoFX/.idea
+NanoFX/.vs
+Example/.idea

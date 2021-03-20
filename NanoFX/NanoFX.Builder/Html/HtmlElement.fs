@@ -1,6 +1,5 @@
 ﻿namespace NanoFX.Builder.Html
 
+open FSharpHTML
 
-[<AbstractClass>]
-type HtmlElement ()=
-    abstract member Parse: unit -> string
+type HtmlGenerator = unit -> HTMLContent

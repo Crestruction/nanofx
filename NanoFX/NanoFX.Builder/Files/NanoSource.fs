@@ -1,19 +1,25 @@
 ﻿namespace NanoFX.Builder.Files
 
-open NanoFX.Builder.Files.Internal
+open FSharpHTML
+open FSharpHTML.Elements
 
-type NanoSource(Type: NanoSourceType) =
-    inherit NanoFile()
-    
-    let mutable srcType = Type
-    member this.Type with get() = srcType
-    
-    new() = NanoSource(NanoSourceType.Unknown)
+type NanoSource = {
+    file: NanoFile
+    srcType: NanoSourceType
+}
 
-    member this.ToHtml() =
-        match Type with
+module NanoSource =
+    let toHtml source =
+        match source.srcType with
         | NanoSourceType.StyleSheet ->
-            $"<link rel=\"stylesheet\" href=\"./src/{this.HashedFileName}\">"
+            link [
+                "rel" %= "stylesheet"
+                "href" %= $"./src/{source.file.hashedFileName}"
+            ]
         | NanoSourceType.JavaScript ->
-            $"<script src=\"./src/{this.HashedFileName}\"></script>"
+            script [
+                "src" %= $"./src/{source.file.hashedFileName}";
+                Text ""
+            ]
         | _ -> failwith "Type should be JavaScript or StyleSheet"
+
