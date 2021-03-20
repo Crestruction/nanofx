@@ -1,6 +1,5 @@
 ﻿namespace NanoFX.Commands
 
-open System
 open Crestruction.Utilities.CommandLine
 open NanoFX.Builder
 
@@ -15,6 +14,5 @@ type NanoBuildCommand () =
     member val private configPath: string = null with get, set
     
     override this.Run() =
-        let builder = NanoBuilder(this.configPath, this.outputPath)
-        builder.Build()
+        Builder.build this.configPath this.outputPath
         0

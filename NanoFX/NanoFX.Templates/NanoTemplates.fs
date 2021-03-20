@@ -1,20 +1,17 @@
-﻿namespace NanoFx.Templates
+﻿module NanoFX.Templates
 
 open System.IO
+open System.Reflection
 
-type NanoTemplates() =
-    member this.Get(name: string) =
-        let asm = this.GetType().Assembly
-        use stream = asm.GetManifestResourceStream($"{asm.GetName().Name}.Resources.{name}")
-        use reader = new StreamReader(stream)
-        
-        reader.ReadToEnd()
-        
-    member this.GetBytes(name: string) =
-        let asm = this.GetType().Assembly
-        use stream = asm.GetManifestResourceStream($"{asm.GetName().Name}.Resources.{name}")
-        let length = int32(stream.Length)
-        let mutable bytes = Array.zeroCreate length
-        stream.Read(bytes, 0, length) |> ignore
-        
-        bytes
+let private getStream name =
+    let asm = Assembly.GetExecutingAssembly ()
+    asm.GetManifestResourceStream($"{asm.GetName().Name}.Resources.{name}")
+
+let get name =
+    use stream = getStream name
+    use reader = new StreamReader(stream)
+    reader.ReadToEnd()
+
+let getBytes(name: string) =
+    use stream = getStream name
+    Array.init (int stream.Length) (ignore >> stream.ReadByte >> byte)

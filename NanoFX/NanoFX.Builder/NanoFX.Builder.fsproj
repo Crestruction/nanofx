@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="Files\Internal\NanoFile.fs" />
-      <Compile Include="Files\Internal\NanoSourceType.fs" />
+      <Compile Include="Files\NanoSourceType.fs" />
+      <Compile Include="Files\NanoFile.fs" />
       <Compile Include="Files\NanoSource.fs" />
       <Compile Include="Files\NanoAudio.fs" />
       <Compile Include="Files\NanoAudioCatlog.fs" />
@@ -21,6 +21,10 @@
       <Compile Include="Html\ButtonSection.fs" />
       <Compile Include="Html\NanoPage.fs" />
       <Compile Include="NanoBuilder.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FSharpHTML" Version="0.9.1" />
     </ItemGroup>
 
     <ItemGroup>

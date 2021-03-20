@@ -1,32 +1,50 @@
-﻿namespace NanoFX.Configure
+﻿module NanoFX.Configure
 
-open System.IO
-open NanoFX.Configure.Internal
-open YamlDotNet.Serialization
+open Legivel.Serialization
 
-[<AllowNullLiteral>]
-type NanoConfig() =
-    
-    [<YamlMember(Alias="base")>]
-    member val BasePath: string = null with get, set
-    
-    [<YamlMember(Alias="site")>]
-    member val Site: SiteConfig = null with get, set
+type AudioConfig = {
+    id: string
+    title: string
+    path: string
+}
 
-    [<YamlMember(Alias="resources")>]
-    member val Resources: ResourceConfig = null with get, set
-    
-    [<YamlMember(Alias="styles")>]
-    member val Styles: StyleConfig = null with get, set
-    
-    member this.Read (path:string) : NanoConfig =
-        let deserializer = Deserializer()
-        let content = File.ReadAllText path
-        
-        let conf = deserializer.Deserialize<NanoConfig>(content)
-        this.BasePath <- conf.BasePath;        
-        this.Site <- conf.Site
-        this.Resources <- conf.Resources
-        this.Styles <- conf.Styles
-        
-        conf
+type ResourceConfig = {
+    audiosources: AudioConfig list
+    stylesheets: string list
+    javascripts: string list
+}
+
+type SiteConfig = {
+    name: string
+    favicon: string
+    headericon: string
+    copyright: string
+}
+
+type StyleConfig = {
+    page: string list
+    section: string list
+    header: string list
+    button: string list
+}
+
+type NanoConfig = {
+    ``base``: string
+    site: SiteConfig
+    resources: ResourceConfig
+    styles: StyleConfig
+}
+
+let loadNanoConfig = 
+    System.IO.File.ReadAllText
+    >> Deserialize<NanoConfig>
+    >> List.exactlyOne
+    >> function
+    | Success x -> x.Data
+    | Error e -> 
+        failwithf "Can not load yaml, message: \n%A" e
+
+let private getHtmlClass = List.map ((+) " ") >> List.fold (+) ""
+let getButtonClass style = getHtmlClass style.button
+let getSectionClass style = getHtmlClass style.section
+let getHeaderClass style = getHtmlClass style.header
